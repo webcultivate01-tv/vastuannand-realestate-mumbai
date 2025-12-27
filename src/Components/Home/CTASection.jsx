@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600">
+    <section className="py-20 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 mb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
           Ready to Find Your Dream Home?

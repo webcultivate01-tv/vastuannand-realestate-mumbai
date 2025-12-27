@@ -10,8 +10,8 @@ const Home = () => {
     <div className="w-full">
       <HeroSection />
       <StatsSection />
-      <FeaturesSection />
       <PropertyTypesSection />
+      <FeaturesSection />
       <CTASection />
     </div>
   );
