@@ -9,7 +9,7 @@ const HeroSection = () => {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero1.webp')`,
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-40 text-center">
         <div className="space-y-8">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
             Find Your Dream Home in{' '}

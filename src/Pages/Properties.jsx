@@ -5,7 +5,7 @@ import PropertyList from '../Components/Properties/PropertyList';
 
 const Properties = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen mt-24 bg-gray-50">
       <PropertiesHero />
       <PropertyFilters />
       <PropertyList />

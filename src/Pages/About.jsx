@@ -4,7 +4,7 @@ import AboutContent from '../Components/About/AboutContent';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen mt-24 bg-gray-50">
       <AboutHero />
       <AboutContent />
     </div>

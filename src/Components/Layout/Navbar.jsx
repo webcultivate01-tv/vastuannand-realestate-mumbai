@@ -28,7 +28,7 @@ const Navbar = () => {
     <nav
   className={`fixed w-full top-0 z-50 transition-all duration-300
     ${scrolled
-      ? 'bg-gradient-to-r from-amber-500/50 via-yellow-500/50 to-amber-600/50 shadow-lg backdrop-blur-md py-0.1'
+      ? 'bg-white/30 shadow-lg backdrop-blur-md py-0.1'
       : 'bg-transparent py-2'
     }`}>
 
@@ -36,9 +36,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-white">
-              <span className={scrolled ? "text-gray-900" : "text-amber-400"}>Vastu</span>
-              <span className={scrolled ? "text-gray-900" : "text-white"}> Anand</span>
+            <div className="text-2xl font-bold">
+              <span className="text-amber-500">Vastu</span>
+              <span className="text-gray-900"> Anand</span>
             </div>
           </Link>
 
@@ -49,23 +49,15 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={`text-base font-medium transition-colors duration-300 ${
-                  scrolled
-                    ? isActive(link.path)
-                      ? 'text-gray-900 font-semibold'
-                      : 'text-gray-800 hover:text-gray-900'
-                    : isActive(link.path)
-                      ? 'text-amber-400 font-semibold'
-                      : 'text-white hover:text-amber-400'
+                  isActive(link.path)
+                    ? 'text-amber-500 font-semibold'
+                    : 'text-gray-900 hover:text-amber-500'
                 }`}
               >
                 {link.name}
               </Link>
             ))}
-            <button className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 ${
-              scrolled
-                ? 'bg-gray-900 hover:bg-gray-800 text-white'
-                : 'bg-amber-500 hover:bg-amber-600 text-gray-900'
-            }`}>
+            <button className="px-6 py-2 rounded-lg font-medium transition-all duration-300 bg-amber-500 hover:bg-amber-600 text-gray-900">
               Get Started
             </button>
           </div>
@@ -73,7 +65,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white focus:outline-none"
+            className="md:hidden text-gray-900 focus:outline-none"
             aria-label="Toggle menu"
           >
             <svg
