@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   return (
@@ -10,7 +11,12 @@ const HeroSection = () => {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-40 text-center w-full">
-        <div className="space-y-6 md:space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="space-y-6 md:space-y-8"
+        >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
             Find Your Dream Home in{' '}
             <span className="text-amber-400">Mumbai</span>
@@ -32,10 +38,15 @@ const HeroSection = () => {
               Contact Us
             </Link>
           </div>
-        </div>
+        </motion.div>
 
         {/* Search Box */}
-        <div className="mt-12 md:mt-16 max-w-5xl mx-auto px-2 md:px-0">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+          className="mt-12 md:mt-16 max-w-5xl mx-auto px-2 md:px-0"
+        >
           <div className="bg-white rounded-lg md:rounded-2xl shadow-2xl p-4 md:p-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
               <div>
@@ -79,7 +90,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
