@@ -1,14 +1,93 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropertiesHero from '../Components/Properties/PropertiesHero';
-import PropertyFilters from '../Components/Properties/PropertyFilters';
 import PropertyList from '../Components/Properties/PropertyList';
 
 const Properties = () => {
+  const properties = useMemo(() => ([
+    {
+      id: 1,
+      name: 'Luxury Apartment in Bandra',
+      location: 'Bandra West, Mumbai',
+      price: 35000000,
+      priceLabel: '₹3.5 Cr',
+      bedrooms: 3,
+      bathrooms: 2,
+      area: '1850 sq ft',
+      type: 'Apartment',
+      tags: ['Sea View', 'Furnished'],
+      imageUrl: '/img1.webp',
+    },
+    {
+      id: 2,
+      name: 'Premium Villa in Juhu',
+      location: 'Juhu, Mumbai',
+      price: 85000000,
+      priceLabel: '₹8.5 Cr',
+      bedrooms: 5,
+      bathrooms: 4,
+      area: '4500 sq ft',
+      type: 'Villa',
+      tags: ['Private Garden', 'Pool'],
+      imageUrl: '/img3.webp',
+    },
+    {
+      id: 3,
+      name: 'Penthouse with Sea View',
+      location: 'Worli, Mumbai',
+      price: 120000000,
+      priceLabel: '₹12 Cr',
+      bedrooms: 4,
+      bathrooms: 3,
+      area: '3200 sq ft',
+      type: 'Penthouse',
+      tags: ['Terrace', 'Sea View'],
+      imageUrl: '/img5.webp',
+    },
+    {
+      id: 4,
+      name: 'Corporate Office Space',
+      location: 'BKC, Mumbai',
+      price: 65000000,
+      priceLabel: '₹6.5 Cr',
+      bedrooms: 0,
+      bathrooms: 2,
+      area: '5200 sq ft',
+      type: 'Commercial',
+      tags: ['Grade A', 'Furnished'],
+      imageUrl: '/img9.webp',
+    },
+    {
+      id: 5,
+      name: 'Modern Apartment in Powai',
+      location: 'Powai, Mumbai',
+      price: 22000000,
+      priceLabel: '₹2.2 Cr',
+      bedrooms: 2,
+      bathrooms: 2,
+      area: '1150 sq ft',
+      type: 'Apartment',
+      tags: ['Lake View', 'Clubhouse'],
+      imageUrl: '/img8.avif',
+    },
+    {
+      id: 6,
+      name: 'Retail Showroom',
+      location: 'Andheri West, Mumbai',
+      price: 40000000,
+      priceLabel: '₹4 Cr',
+      bedrooms: 0,
+      bathrooms: 1,
+      area: '1800 sq ft',
+      type: 'Commercial',
+      tags: ['High Footfall', 'Corner Unit'],
+      imageUrl: '/img4.webp',
+    },
+  ]), []);
+
   return (
     <div className="min-h-screen mt-24 bg-gray-50">
       <PropertiesHero />
-      <PropertyFilters />
-      <PropertyList />
+      <PropertyList properties={properties} />
     </div>
   );
 };
