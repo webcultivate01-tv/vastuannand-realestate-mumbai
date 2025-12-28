@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -32,41 +31,24 @@ const ContactForm = () => {
   return (
     <section className="py-10 md:py-10 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Let's Connect
           </h2>
           <p className="text-lg text-gray-600">
             Have questions about properties or investment opportunities? Our team is ready to assist you.
           </p>
-        </motion.div>
+        </div>
 
         {submitted && (
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="mb-8 p-4 bg-green-50 border border-green-500 rounded-lg"
-          >
+          <div className="mb-8 p-4 bg-green-50 border border-green-500 rounded-lg">
             <p className="text-green-700 font-semibold text-center">
               ✓ Thank you! We've received your message and will get back to you shortly.
             </p>
-          </motion.div>
+          </div>
         )}
 
-        <motion.form 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          onSubmit={handleSubmit} 
-          className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-200"
-        >
+        <form onSubmit={handleSubmit} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-200">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
               <label className="block text-sm font-semibold text-gray-800 mb-3">
@@ -156,7 +138,7 @@ const ContactForm = () => {
           >
             Send Message
           </button>
-        </motion.form>
+        </form>
       </div>
     </section>
   );
