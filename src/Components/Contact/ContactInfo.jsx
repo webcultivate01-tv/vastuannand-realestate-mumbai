@@ -3,13 +3,14 @@ import { CONTACT_INFO } from '../../constants/navigation';
 
 const ContactInfo = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-6 bg-gray-50 rounded-xl">
-            <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {/* Phone */}
+          <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-amber-500">
+            <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <svg
-                className="w-8 h-8 text-gray-900"
+                className="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -22,13 +23,16 @@ const ContactInfo = () => {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Phone</h3>
-            <p className="text-gray-600">{CONTACT_INFO.phone}</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Phone</h3>
+            <p className="text-gray-600 text-center text-lg font-semibold">{CONTACT_INFO.phone}</p>
+            <p className="text-gray-500 text-center text-sm mt-2">Available Monday - Sunday<br/>9:00 AM - 8:00 PM</p>
           </div>
-          <div className="text-center p-6 bg-gray-50 rounded-xl">
-            <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+
+          {/* Email */}
+          <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-amber-500">
+            <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <svg
-                className="w-8 h-8 text-gray-900"
+                className="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -41,13 +45,16 @@ const ContactInfo = () => {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Email</h3>
-            <p className="text-gray-600">{CONTACT_INFO.email}</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Email</h3>
+            <p className="text-gray-600 text-center text-lg font-semibold break-all">{CONTACT_INFO.email}</p>
+            <p className="text-gray-500 text-center text-sm mt-2">We respond within<br/>24 hours</p>
           </div>
-          <div className="text-center p-6 bg-gray-50 rounded-xl">
-            <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+
+          {/* Location */}
+          <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-amber-500">
+            <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <svg
-                className="w-8 h-8 text-gray-900"
+                className="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -60,8 +67,9 @@ const ContactInfo = () => {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Location</h3>
-            <p className="text-gray-600">{CONTACT_INFO.address}</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Location</h3>
+            <p className="text-gray-600 text-center text-lg font-semibold">{CONTACT_INFO.address}</p>
+            <p className="text-gray-500 text-center text-sm mt-2">Visit our office for<br/>in-person consultation</p>
           </div>
         </div>
       </div>

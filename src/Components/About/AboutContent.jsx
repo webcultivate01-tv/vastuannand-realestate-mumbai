@@ -2,10 +2,10 @@ import React from 'react';
 
 const AboutContent = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Who We Are */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-16">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Who We Are
@@ -33,40 +33,40 @@ const AboutContent = () => {
         </div>
 
         {/* What We Do */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-          <div className="order-2 md:order-2">
-            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start mb-16">
+          <div className="order-2 md:order-1 space-y-5">
+            <h3 className="text-4xl md:text-5xl font-bold text-gray-900">
               What We Do
             </h3>
-            <p className="text-lg text-gray-700 mb-4">
+            <p className="text-lg text-gray-700">
               We specialize in curated property solutions for residential,
               commercial, and hospitality needs—covering leasing, purchase, and
               sale of apartments, offices, retail spaces, hotels, and resorts.
             </p>
             <ul className="space-y-3 text-gray-700">
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Industrial-ready options for warehousing and logistics.</span>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-amber-500" />
+                <span className="leading-relaxed">Industrial-ready options for warehousing and logistics.</span>
               </li>
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Premium commercial spaces across prime business hubs.</span>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-amber-500" />
+                <span className="leading-relaxed">Premium commercial spaces across prime business hubs.</span>
               </li>
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Hospitality transactions for hotels, resorts, and stays.</span>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-amber-500" />
+                <span className="leading-relaxed">Hospitality transactions for hotels, resorts, and stays.</span>
               </li>
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>End-to-end support—from shortlisting to closure.</span>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-amber-500" />
+                <span className="leading-relaxed">End-to-end support—from shortlisting to closure.</span>
               </li>
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Customized solutions based on budget, location, and goals.</span>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-amber-500" />
+                <span className="leading-relaxed">Customized solutions based on budget, location, and goals.</span>
               </li>
             </ul>
           </div>
-          <div className="order-1 md:order-1 overflow-hidden rounded-xl">
+          <div className="order-1 md:order-2 overflow-hidden rounded-xl">
             <img
               src="/img8.avif"
               alt="Contemporary office interior and retail design"
@@ -76,53 +76,11 @@ const AboutContent = () => {
           </div>
         </div>
 
-        {/* Our Strengths */}
-        <div className="bg-gray-50 rounded-2xl p-8 md:p-10 mb-16">
-          <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Strengths
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Deep local expertise across Mumbai micro-markets.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Trusted network of owners, developers, and partners.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Transparent process and ethical dealings, start to finish.</span>
-              </li>
-            </ul>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Fast access to verified, high-quality listings.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Negotiation support to secure value-driven outcomes.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
-                <span>Documentation guidance for a clean, secure closure.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+       
 
         {/* Vision & Mission */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="overflow-hidden rounded-xl">
-            <img
-              src="/img9.webp"
-              alt="Clients and advisors collaborating on property decisions"
-              className="w-full h-[22rem] object-cover"
-              loading="lazy"
-            />
-          </div>
+          
           <div>
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Our Vision & Mission
@@ -136,6 +94,76 @@ const AboutContent = () => {
               estate solutions—simplifying complexity and elevating outcomes for
               every client we serve.
             </p>
+          </div>
+
+          <div className="overflow-hidden rounded-xl">
+            <img
+              src="/img9.webp"
+              alt="Clients and advisors collaborating on property decisions"
+              className="w-full h-[22rem] object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+         {/* Our Strengths */}
+        <div className="mb-20 mt-20">
+          <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+            Our Strengths
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Strength 1 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-amber-500">
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Deep Local Expertise</h4>
+              <p className="text-gray-600 leading-relaxed">
+                Extensive knowledge of Mumbai's micro-markets, neighborhoods, and emerging areas with real-time market intelligence.
+              </p>
+            </div>
+
+            {/* Strength 2 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-amber-500">
+              
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Trusted Network</h4>
+              <p className="text-gray-600 leading-relaxed">
+                Strong relationships with property owners, developers, and industry partners ensuring access to exclusive opportunities.
+              </p>
+            </div>
+
+            {/* Strength 3 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-amber-500">
+             
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Transparent & Ethical</h4>
+              <p className="text-gray-600 leading-relaxed">
+                Complete transparency in all dealings with verified listings, honest advice, and ethical practices from start to finish.
+              </p>
+            </div>
+
+            {/* Strength 4 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-amber-500">
+              
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Fast Access</h4>
+              <p className="text-gray-600 leading-relaxed">
+                Curated inventory of verified, high-quality listings with priority access to exclusive pre-launch opportunities.
+              </p>
+            </div>
+
+            {/* Strength 5 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-amber-500">
+              
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Expert Negotiation</h4>
+              <p className="text-gray-600 leading-relaxed">
+                Skilled negotiators who secure best-value outcomes and maximize returns for every property transaction.
+              </p>
+            </div>
+
+            {/* Strength 6 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-amber-500">
+              
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Legal Clarity</h4>
+              <p className="text-gray-600 leading-relaxed">
+                Complete documentation guidance and legal support ensuring clean, secure, and hassle-free property closures.
+              </p>
+            </div>
           </div>
         </div>
       </div>

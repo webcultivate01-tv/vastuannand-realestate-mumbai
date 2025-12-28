@@ -25,21 +25,20 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-10 bg-white mb-20">
+    <section className="py-12 md:py-16 lg:py-20 bg-white mb-12 md:mb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
             Why Choose Us
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We provide exceptional real estate services that make your property
-            journey seamless and rewarding.
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
+            We provide exceptional real estate services that make your property journey seamless and rewarding.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Image on Left */}
-          <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative h-80 sm:h-96 md:h-[500px] lg:h-[600px] rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl order-2 lg:order-1">
             <img 
               src="/img2.webp" 
               alt="Luxury Property" 
@@ -49,21 +48,23 @@ const FeaturesSection = () => {
           </div>
 
           {/* Features on Right */}
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-r from-gray-50 to-amber-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:translate-x-2 border-l-4 border-amber-500"
+                className="bg-gradient-to-r from-gray-50 to-amber-50 rounded-lg md:rounded-xl p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:translate-x-2 border-l-4 border-amber-500"
               >
-                <div className="flex items-start space-x-4">
-                  <div className="bg-gradient-to-br from-amber-500 to-yellow-500 text-gray-900 w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 text-2xl">
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="bg-gradient-to-br from-amber-500 to-yellow-500 text-gray-900 w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center flex-shrink-0 text-xl md:text-2xl font-bold">
                     {feature.icon}
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
               </div>

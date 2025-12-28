@@ -2,6 +2,7 @@ import React from 'react';
 import ContactHero from '../Components/Contact/ContactHero';
 import ContactInfo from '../Components/Contact/ContactInfo';
 import ContactForm from '../Components/Contact/ContactForm';
+import FAQ from '../Components/Contact/FAQ';
 
 const Contact = () => {
   return (
@@ -9,6 +10,7 @@ const Contact = () => {
       <ContactHero />
       <ContactInfo />
       <ContactForm />
+      <FAQ />
     </div>
   );
 };
