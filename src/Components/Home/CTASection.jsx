@@ -1,10 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
     <section
-      className="relative py-20 mb-20 bg-cover bg-center bg-no-repeat"
+      className="
+        relative 
+        py-20 
+        mb-20 
+        bg-center 
+        bg-no-repeat 
+        bg-cover 
+        bg-fixed
+      "
       style={{
         backgroundImage:
           "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/img6.webp')",
@@ -14,13 +22,15 @@ const CTASection = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
           Ready to Find Your Dream Home?
         </h2>
+
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
           Let our expert team guide you through every step of your property
           journey. Get started today!
         </p>
+
         <Link
           to="/contact"
-          className="inline-block bg-white/90 hover:bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+          className="inline-block bg-amber-400 hover:bg-white text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
         >
           Schedule a Consultation
         </Link>
