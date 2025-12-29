@@ -5,7 +5,7 @@ const ContactHero = () => {
   return (
     <>
       <section
-        className="relative min-h-[calc(80vh-6rem)] flex items-center justify-center 
+        className="relative min-h-[calc(70vh-6rem)] flex items-center justify-center 
                    bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `
