@@ -50,6 +50,8 @@ const ContactForm = () => {
           <div className="space-y-8">
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
               <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
+
+              {/* Email */}
               <p className="text-gray-700 mb-2">
                 📧 Email:{" "}
                 <a
@@ -59,16 +61,35 @@ const ContactForm = () => {
                   info@vastuannand.com
                 </a>
               </p>
-              <p className="text-gray-700 mb-2">
+
+              {/* Phone */}
+              <p className="text-gray-700 mb-4">
                 📞 Phone:{" "}
                 <a href="tel:+919876543210" className="text-amber-500">
                   +91 98765 43210
                 </a>
               </p>
-              <p className="text-gray-700 mb-4">
-                🏢 Address: 123, Real Estate Street, Mumbai, India
-              </p>
 
+              {/* Addresses */}
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold mb-3">🏢 Our Offices</h4>
+
+                <ul className="space-y-2 text-gray-700">
+                  <li>
+                    <strong>Mumbai:</strong> Mohan park building, Near Shahad
+                    Opp D-mart, kalyan West
+                  </li>
+                  <li>
+                    <strong>Mumbai:</strong> Tardeo,Mumbai Central 07
+                  </li>
+                  <li>
+                    <strong>Amravati:</strong> Dastur Nagar Old Bypass Road
+                    Amravati
+                  </li>
+                </ul>
+              </div>
+
+              {/* Social Icons */}
               <div className="flex gap-4 mb-6">
                 <a
                   href="#"
@@ -96,7 +117,7 @@ const ContactForm = () => {
                 </a>
               </div>
 
-              {/* Map */}
+              {/* Optional Map (Single HQ) */}
               <div className="rounded-lg overflow-hidden shadow-inner">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.200446492398!2d72.8777!3d19.0760!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c63b0f19c9b9%3A0x8f9c88b1fdfb9d14!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1698300000000!5m2!1sen!2sin"
