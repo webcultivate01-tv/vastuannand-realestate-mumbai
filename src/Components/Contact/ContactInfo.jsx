@@ -1,14 +1,92 @@
-import React from 'react';
-import { CONTACT_INFO } from '../../constants/navigation';
+import React from "react";
+import { motion } from "framer-motion";
+import { CONTACT_INFO } from "../../constants/navigation";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.15 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
 
 const ContactInfo = () => {
   return (
-    <section className="py-16 md:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+    <section className="relative py-20 bg-gray-50 overflow-hidden">
+      {/* Background Glow Blobs */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top-left bigger, more intense */}
+        <div className="absolute top-[-20%] left-[-20%] w-128 h-128 rounded-full bg-gradient-to-br from-amber-300 to-orange-500 opacity-30 blur-4xl animate-spin-slow" />
+        <div className="absolute top-[-10%] left-[-10%] w-80 h-80 rounded-full bg-gradient-to-br from-amber-200 to-orange-400 opacity-40 blur-3xl animate-spin-slower" />
+
+        {/* Bottom-right bigger, more intense */}
+        <div className="absolute bottom-[-20%] right-[-15%] w-128 h-128 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 opacity-25 blur-4xl animate-spin-reverse-slow" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-80 h-80 rounded-full bg-gradient-to-br from-amber-300 to-orange-400 opacity-30 blur-3xl animate-spin-reverse" />
+      </div>
+
+      {/* Floating Texts */}
+      <div className="absolute top-10 left-5 text-4xl font-extrabold text-amber-100 opacity-10 rotate-12 select-none pointer-events-none">
+        CONNECT
+      </div>
+      <div className="absolute bottom-20 right-10 text-4xl font-extrabold text-orange-100 opacity-10 -rotate-12 select-none pointer-events-none">
+        VISIT
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Heading */}
+        <motion.h2
+          variants={item}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-3"
+        >
+          Reach Out to Our Experts
+        </motion.h2>
+        <motion.p
+          variants={item}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-gray-600 max-w-2xl mx-auto mb-12"
+        >
+          Personalized guidance, verified listings, and complete transparency —
+          <span className="font-semibold text-orange-500">
+            {" "}
+            we make property decisions effortless!
+          </span>
+        </motion.p>
+
+        {/* Divider */}
+        <motion.div
+          variants={item}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="relative mb-12 flex justify-center"
+        >
+          <div className="absolute w-64 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-60" />
+          <span className="absolute w-4 h-4 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 animate-ping opacity-60" />
+          <span className="relative w-3 h-3 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 shadow-lg" />
+        </motion.div>
+
+        {/* Cards */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
           {/* Phone */}
-          <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-amber-500">
-            <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <motion.div
+            variants={item}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-transparent hover:border-amber-400 transition-all duration-300 relative overflow-hidden"
+          >
+            <div className="relative w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-400 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <svg
                 className="w-8 h-8 text-white"
                 fill="none"
@@ -23,14 +101,22 @@ const ContactInfo = () => {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Phone</h3>
-            <p className="text-gray-600 text-center text-lg font-semibold">{CONTACT_INFO.phone}</p>
-            <p className="text-gray-500 text-center text-sm mt-2">Available Monday - Sunday<br/>9:00 AM - 8:00 PM</p>
-          </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Phone</h3>
+            <p className="text-orange-500 text-lg font-semibold">
+              {CONTACT_INFO.phone}
+            </p>
+            <p className="text-gray-500 text-sm mt-2">
+              Available Mon-Sun • 9:00 AM - 8:00 PM
+            </p>
+          </motion.div>
 
           {/* Email */}
-          <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-amber-500">
-            <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <motion.div
+            variants={item}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-transparent hover:border-amber-400 transition-all duration-300 relative overflow-hidden"
+          >
+            <div className="relative w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-400 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <svg
                 className="w-8 h-8 text-white"
                 fill="none"
@@ -45,14 +131,22 @@ const ContactInfo = () => {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Email</h3>
-            <p className="text-gray-600 text-center text-lg font-semibold break-all">{CONTACT_INFO.email}</p>
-            <p className="text-gray-500 text-center text-sm mt-2">We respond within<br/>24 hours</p>
-          </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Email</h3>
+            <p className="text-orange-500 text-lg font-semibold break-all">
+              {CONTACT_INFO.email}
+            </p>
+            <p className="text-gray-500 text-sm mt-2">
+              We respond within 24 hours
+            </p>
+          </motion.div>
 
           {/* Location */}
-          <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-amber-500">
-            <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <motion.div
+            variants={item}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-transparent hover:border-amber-400 transition-all duration-300 relative overflow-hidden"
+          >
+            <div className="relative w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-400 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <svg
                 className="w-8 h-8 text-white"
                 fill="none"
@@ -67,11 +161,17 @@ const ContactInfo = () => {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Location</h3>
-            <p className="text-gray-600 text-center text-lg font-semibold">{CONTACT_INFO.address}</p>
-            <p className="text-gray-500 text-center text-sm mt-2">Visit our office for<br/>in-person consultation</p>
-          </div>
-        </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Locations</h3>
+            <div className="text-orange-500 text-lg font-semibold space-y-2">
+              <p>{CONTACT_INFO.address[0]}</p>
+              <p>{CONTACT_INFO.address[1]}</p>
+              <p>{CONTACT_INFO.address[2]}</p>
+            </div>
+            <p className="text-gray-500 text-sm mt-2">
+              Visit any of our offices for in-person consultation
+            </p>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

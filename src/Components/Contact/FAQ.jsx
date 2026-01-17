@@ -1,73 +1,94 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const FAQ = () => {
+const faqs = [
+  {
+    question: "What areas in Mumbai do you cover?",
+    answer:
+      "We specialize in properties across major Mumbai neighborhoods including South, Central, North, and suburban areas. Our local expertise spans micro-markets like Bandra, Worli, Andheri, Navi Mumbai, and more.",
+  },
+  {
+    question: "How much do your consultation services cost?",
+    answer:
+      "Our consultation services are complimentary for prospective clients. We work on transparent commission models for property transactions. Contact us for a customized quote.",
+  },
+  {
+    question: "Do you help with property documentation and legal processes?",
+    answer:
+      "Yes, we provide complete documentation guidance and connect you with trusted legal advisors to ensure all paperwork is properly reviewed and legally compliant.",
+  },
+  {
+    question: "Can you help if I'm looking to rent a property?",
+    answer:
+      "Absolutely! We assist with residential and commercial rentals, handling end-to-end support including negotiation and documentation.",
+  },
+  {
+    question: "What makes Vastu Anand different from other agencies?",
+    answer:
+      "We stand out through honest advice, verified listings, exclusive pre-launch access, and a client-first approach, ensuring value-driven outcomes.",
+  },
+];
+
+const FAQBlackOrange = () => {
   const [openIndex, setOpenIndex] = useState(null);
-
-  const faqs = [
-    {
-      question: "What areas in Mumbai do you cover?",
-      answer:
-        "We specialize in properties across major Mumbai neighborhoods including South, Central, North, and suburban areas. Our local expertise spans micro-markets like Bandra, Worli, Andheri, Navi Mumbai, and more.",
-    },
-    {
-      question: "How much do your consultation services cost?",
-      answer:
-        "Our consultation services are complimentary for prospective clients. We work on transparent commission models for property transactions. Contact us for a customized quote.",
-    },
-    {
-      question: "Do you help with property documentation and legal processes?",
-      answer:
-        "Yes, we provide complete documentation guidance and connect you with trusted legal advisors to ensure all paperwork is properly reviewed and legally compliant.",
-    },
-    {
-      question: "Can you help if I'm looking to rent a property?",
-      answer:
-        "Absolutely! We assist with residential and commercial rentals, handling end-to-end support including negotiation and documentation.",
-    },
-    {
-      question: "What makes Vastu Anand different from other agencies?",
-      answer:
-        "We stand out through honest advice, verified listings, exclusive pre-launch access, and a client-first approach, ensuring value-driven outcomes.",
-    },
-  ];
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const toggleFAQ = (index) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative mb-12 mr-10 ml-10 overflow-hidden rounded-3xl">
+      {/* Black → Burnt Orange Gradient Background */}
+      <motion.div
+        className="absolute inset-0 rounded-3xl"
+        style={{
+          background: "linear-gradient(270deg, #0d0d0d, #b85c2e, #0d0d0d)",
+          backgroundSize: "800% 800%",
+        }}
+        animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* Overlay for depth */}
+      <div className="absolute inset-0 bg-black/30 rounded-3xl pointer-events-none"></div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 lg:px-8 py-12">
         {/* Heading */}
-        <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-10"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-sm md:text-md text-white/80 max-w-lg mx-auto">
             Find answers to common questions about our services and property
-            transactions
+            transactions.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-          {/* LEFT SIDE – FAQ */}
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
+          {/* FAQ Accordion */}
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="bg-white/10 backdrop-blur-md rounded-lg border border-white/20 overflow-hidden shadow-md hover:shadow-orange-600/50 transition-all duration-400"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50"
+                  className="w-full px-4 py-3 flex items-center justify-between hover:bg-white/20 transition-colors duration-300"
                 >
-                  <h3 className="text-left font-semibold text-gray-900 text-base md:text-lg">
+                  <h3 className="text-left font-semibold text-white text-sm md:text-base">
                     {faq.question}
                   </h3>
 
-                  <svg
-                    className={`w-6 h-6 text-amber-500 transition-transform duration-300 ${
+                  <motion.svg
+                    className={`w-5 h-5 text-orange-400 transition-transform duration-300 ${
                       openIndex === index ? "rotate-180" : ""
                     }`}
                     fill="none"
@@ -80,42 +101,78 @@ const FAQ = () => {
                       strokeWidth="2"
                       d="M19 14l-7 7m0 0l-7-7m7 7V3"
                     />
-                  </svg>
+                  </motion.svg>
                 </button>
 
-                {openIndex === index && (
-                  <div className="px-6 py-5 bg-gradient-to-br from-amber-50 to-yellow-50 border-t">
-                    <p className="text-gray-700 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="px-4 py-3 bg-white/10 border-t border-white/20"
+                    >
+                      <p className="text-white/90 leading-relaxed text-sm md:text-base">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             ))}
 
             {/* CTA Box */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-5 bg-orange-700 hover:bg-orange-600 transition-colors duration-300 rounded-lg px-5 py-4 text-center shadow-lg cursor-pointer"
+            >
+              <p className="text-white font-semibold text-sm md:text-base">
+                Can't find your answer?{" "}
+                <span className="underline">Contact Us Now</span>
+              </p>
+            </motion.div>
           </div>
 
-          {/* RIGHT SIDE – IMAGE */}
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src="/FAQ.webp"
-                alt="Real Estate"
-                className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+          {/* Right-side image */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full rounded-xl overflow-hidden"
+          >
+            <motion.img
+              src="/FAQ.webp"
+              alt="Real Estate"
+              className="w-full h-[250px] md:h-[300px] object-cover rounded-xl shadow-md"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.4 }}
+            />
 
-            {/* Decorative Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-amber-500 text-white px-6 py-4 rounded-xl shadow-lg">
-              <p className="font-bold text-lg">Trusted Property Experts</p>
-              <p className="text-sm opacity-90">1000+ Happy Clients</p>
-            </div>
-          </div>
+            <motion.div
+              initial={{ y: 20, opacity: 0, scale: 0.5 }}
+              whileInView={{ y: 0, opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="absolute top-0 left-0 transform -translate-x-6 -translate-y-6 
+             bg-gradient-to-r from-black/70 via-orange-700/80 to-orange-600/80
+             text-white px-5 py-4 rounded-2xl shadow-xl hover:scale-105 
+             transition-transform duration-300 flex flex-col items-start space-y-1 cursor-pointer z-20"
+            >
+              <p className="font-bold text-sm md:text-base flex items-center gap-2">
+                🔑 Trusted Property Experts
+              </p>
+              <p className="text-xs md:text-sm opacity-90">
+                1000+ Happy Clients
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
 
-export default FAQ;
+export default FAQBlackOrange;
