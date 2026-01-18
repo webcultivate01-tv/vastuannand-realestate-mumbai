@@ -23,3 +23,9 @@ export const CONTACT_INFO = {
   phone: "+91 98765 43210",
   address: ["Mumbai, Maharashtra, India", "kalyan W MH ", "Amravati"],
 };
+
+export const SERVICES = [
+  { name: "Residential Properties", path: "/services/residential" },
+  { name: "Commercial Properties", path: "/services/commercial" },
+  { name: "Property Investment", path: "/services/investment" },
+];
