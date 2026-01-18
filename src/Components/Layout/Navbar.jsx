@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { NAV_LINKS } from '../../constants/navigation';
-import { NAVBAR_CONFIG } from '../../constants/theme';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { NAV_LINKS } from "../../constants/navigation";
+import { NAVBAR_CONFIG } from "../../constants/theme";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +17,8 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
 
   const navLinks = NAV_LINKS;
@@ -26,12 +27,13 @@ const Navbar = () => {
 
   return (
     <nav
-  className={`fixed w-full top-0 z-50 transition-all duration-300
-    ${scrolled
-      ? 'bg-white/30 shadow-lg backdrop-blur-md py-0.1'
-      : 'bg-transparent py-2'
-    }`}>
-
+      className={`fixed w-full top-0 z-50 transition-all duration-300
+    ${
+      scrolled
+        ? "bg-white/30 shadow-lg backdrop-blur-md py-0.1"
+        : "bg-transparent py-2"
+    }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -50,8 +52,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`text-base font-medium transition-colors duration-300 ${
                   isActive(link.path)
-                    ? 'text-amber-500 font-semibold'
-                    : 'text-gray-900 hover:text-amber-500'
+                    ? "text-amber-500 font-semibold"
+                    : "text-gray-900 hover:text-amber-500"
                 }`}
               >
                 {link.name}
@@ -88,41 +90,70 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className={`md:hidden backdrop-blur-md ${
-          scrolled 
-            ? 'bg-gradient-to-b from-amber-500/50 to-yellow-600/50' 
-            : 'bg-gray-900 bg-opacity-95'
-        }`}>
-          <div className="px-4 pt-2 pb-4 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-300 ${
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            />
+
+            {/* Slide Menu */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.45, ease: "easeInOut" }}
+              className={`fixed top-0 right-0 h-screen w-[70%] z-50 md:hidden backdrop-blur-xl shadow-2xl
+          ${
+            scrolled
+              ? "bg-gradient-to-b from-amber-500/70 to-yellow-600/70"
+              : "bg-gray-900"
+          }`}
+            >
+              {/* Header with Close Button */}
+              <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
+                <span className="text-lg font-semibold text-white">Menu</span>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  aria-label="Close menu"
+                  className="text-white hover:rotate-90 transition-transform duration-300"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Links */}
+              <div className="px-5 pt-6 space-y-3">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300
+                ${
                   isActive(link.path)
-                    ? scrolled
-                      ? 'bg-gray-900 text-white'
-                      : 'bg-amber-600 text-white'
-                    : scrolled
-                      ? 'text-gray-900 hover:bg-amber-400'
-                      : 'text-white hover:bg-gray-800'
+                    ? "bg-amber-600 text-white"
+                    : "text-white hover:bg-white/10"
                 }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <button className={`w-full px-4 py-3 rounded-lg font-medium transition-colors duration-300 ${
-              scrolled
-                ? 'bg-gray-900 hover:bg-gray-800 text-white'
-                : 'bg-amber-500 hover:bg-amber-600 text-gray-900'
-            }`}>
-              Get Started
-            </button>
-          </div>
-        </div>
-      )}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
+                {/* CTA */}
+                <button className="w-full mt-6 px-4 py-3 rounded-xl font-semibold bg-amber-500 hover:bg-amber-600 text-gray-900 transition">
+                  Get Started
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

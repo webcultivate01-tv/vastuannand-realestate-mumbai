@@ -1,6 +1,6 @@
-import React from 'react';
-import AboutHero from '../Components/About/AboutHero';
-import AboutContent from '../Components/About/AboutContent';
+import React from "react";
+import AboutHero from "../Components/About/AboutHero";
+import AboutContent from "../Components/About/AboutContent-new";
 
 const About = () => {
   return (

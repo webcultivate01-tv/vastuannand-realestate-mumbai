@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const container = {
   hidden: {},
@@ -18,24 +19,28 @@ const ServicesSection = () => {
       title: "Property Buying",
       description:
         "Find and acquire your dream home in Mumbai’s prime locations.",
+      path: "/services/property-buying",
     },
     {
       image: "/services2.avif",
       title: "Property Selling",
       description:
         "Maximize your property value with expert insights and strategies.",
+      path: "/services/property-selling",
     },
     {
       image: "/services3.avif",
       title: "Property Consultation",
       description:
         "Guiding you through property investment & legal documentation.",
+      path: "/services/property-consultation",
     },
     {
       image: "/services4.avif",
       title: "Rental Services",
       description:
         "Helping you find premium rental properties with easy booking.",
+      path: "/services/rental-services",
     },
   ];
 
@@ -76,32 +81,33 @@ const ServicesSection = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
         >
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={item}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="relative rounded-3xl shadow-2xl overflow-hidden cursor-pointer group"
-            >
-              {/* Card Background */}
-              <div className="absolute inset-0 rounded-3xl bg-white shadow-lg" />
+            <Link key={index} to={service.path}>
+              <motion.div
+                variants={item}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="relative rounded-3xl shadow-2xl overflow-hidden cursor-pointer group"
+              >
+                {/* Card Background */}
+                <div className="absolute inset-0 rounded-3xl bg-white shadow-lg" />
 
-              {/* Image */}
-              <div className="relative rounded-3xl overflow-hidden h-64">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
+                {/* Image */}
+                <div className="relative rounded-3xl overflow-hidden h-64">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
 
-              {/* Text Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 px-6 py-4 bg-gradient-to-t from-black/60 to-transparent">
-                <h3 className="text-xl font-bold text-white mb-1">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-white">{service.description}</p>
-              </div>
-            </motion.div>
+                {/* Text Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 px-6 py-4 bg-gradient-to-t from-black/60 to-transparent">
+                  <h3 className="text-xl font-bold text-white mb-1">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-white">{service.description}</p>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
 
