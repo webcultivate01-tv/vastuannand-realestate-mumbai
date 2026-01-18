@@ -17,7 +17,9 @@ import PropertyBuying from "./Components/Services/Pbuyig";
 import PropertySelling from "./Components/Services/Pselling";
 import PropertyConsultation from "./Components/Services/Pconsultation";
 import RentalServices from "./Components/Services/Rental";
-
+import FirstTimeHomeBuyers from "./Components/Blog/FirstTimeHomeBuyers";
+import MumbaiInvestment from "./Components/Blog/MumbaiInvestment2025";
+import PropertyDocumentation from "./Components/Blog/PropertyDocumentation";
 // Scroll to top component
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -40,7 +42,7 @@ const App = () => {
           <Route path="properties" element={<Properties />} />
           <Route path="/property/:id" element={<PropertyDetail />} />
           <Route path="blog" element={<Blog />} />
-          <Route path="contact" element={<Contact />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
           <Route
             path="/services/property-buying"
@@ -59,6 +61,15 @@ const App = () => {
             element={<RentalServices />}
           />
         </Route>
+        <Route
+          path="/blog/first-time-home-buyers-mumbai"
+          element={<FirstTimeHomeBuyers />}
+        />
+        <Route path="/blog/mumbaiInvestment" element={<MumbaiInvestment />} />
+        <Route
+          path="/blog/propertydocumentation"
+          element={<PropertyDocumentation />}
+        />
       </Routes>
     </Router>
   );

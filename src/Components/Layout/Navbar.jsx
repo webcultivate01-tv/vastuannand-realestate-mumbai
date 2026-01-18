@@ -59,9 +59,11 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <button className="px-6 py-2 rounded-lg font-medium transition-all duration-300 bg-amber-500 hover:bg-amber-600 text-gray-900">
-              Get Started
-            </button>
+            <Link to="/contact">
+              <button className="px-6 py-2 rounded-lg font-medium transition-all duration-300 bg-amber-500 hover:bg-amber-600 text-gray-900">
+                Get Started
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}

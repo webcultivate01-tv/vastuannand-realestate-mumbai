@@ -1,14 +1,14 @@
 import React from 'react';
-import BlogHero from '../Components/Blog/BlogHero';
+// import BlogHero from '../Components/Blog/BlogHero';
 import BlogGrid from '../Components/Blog/BlogGrid';
-import Newsletter from '../Components/Blog/Newsletter';
+// import Newsletter from '../Components/Blog/Newsletter';
 
 const Blog = () => {
   return (
     <div className="min-h-screen mt-24 bg-gray-50">
-      <BlogHero />
+      {/* <BlogHero /> */}
       <BlogGrid />
-      <Newsletter />
+      {/* <Newsletter /> */}
     </div>
   );
 };
