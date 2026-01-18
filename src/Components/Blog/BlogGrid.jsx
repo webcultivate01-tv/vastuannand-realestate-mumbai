@@ -35,39 +35,6 @@ const blogPosts = [
     imageUrl: "/img10.webp",
     readTime: "7 min read",
   },
-  // {
-  //   id: 4,
-  //   title: "Luxury Penthouses: What to Look For",
-  //   excerpt:
-  //     "Skyline views, private decks, amenity stacks, and privacy are non-negotiable—here is how to evaluate penthouse layouts, MEP quality, elevators, and service access before you commit to a crore-plus purchase.",
-  //   author: "Neha Desai",
-  //   date: "December 5, 2025",
-  //   category: "Luxury",
-  //   imageUrl: "/img5.webp",
-  //   readTime: "6 min read",
-  // },
-  // {
-  //   id: 5,
-  //   title: "Smart Home Technology in Modern Apartments",
-  //   excerpt:
-  //     "From energy dashboards and climate zoning to security stacks and interoperable hubs, see which smart features add real resale value. We also cover practical retrofit tips for Mumbai apartments without heavy renovations.",
-  //   author: "Vikram Singh",
-  //   date: "November 28, 2025",
-  //   category: "Technology",
-  //   imageUrl: "/img11.webp",
-  //   readTime: "8 min read",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Vastu Shastra: Principles for Your Dream Home",
-  //   excerpt:
-  //     "Key Vastu zones, entrance orientation, kitchen and bedroom placement, and how to adapt principles in high-rise apartments. Simple fixes and remedies you can implement without structural changes.",
-  //   author: "Sunita Reddy",
-  //   date: "November 20, 2025",
-  //   category: "Lifestyle",
-  //   imageUrl: "/img6.webp",
-  //   readTime: "9 min read",
-  // },
 ];
 
 const BlogGrid = () => {
@@ -104,17 +71,6 @@ const BlogGrid = () => {
                   {post.excerpt}
                 </p>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-9 h-9 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      {post.author.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">
-                        {post.author}
-                      </p>
-                      <p className="text-xs text-gray-500">{post.date}</p>
-                    </div>
-                  </div>
                   <Link
                     to={`/blog/${post.id}`}
                     className="text-amber-600 hover:text-amber-700 font-semibold text-sm"
